@@ -1,13 +1,10 @@
-package com.lld.api_gateway;
+package com.lld.api_gateway.configuration;
 
 import com.lld.api_gateway.rateLimiter.service.RateLimitService;
-import jakarta.servlet.http.HttpServletRequest;
-import org.apache.catalina.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.function.RouterFunction;
-import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.function.ServerResponse;
 
 import static org.springframework.cloud.gateway.server.mvc.filter.BeforeFilterFunctions.uri;

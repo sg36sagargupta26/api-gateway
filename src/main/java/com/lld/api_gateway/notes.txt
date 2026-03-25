@@ -1,0 +1,13 @@
+Design an API Gateway.
+	•	What responsibilities does an API Gateway have?
+	•	What problems is it solving?
+
+->API Gateway acts as a single entry point for clients, abstracting internal microservices and handling cross-cutting concerns like authentication,
+routing, rate limiting, and observability, while simplifying client interactions and improving system security and scalability
+
+Major things that api gateway serves:
+	1.	Routing + Load balancing
+	2.	Authentication (JWT/API key)
+	3.	Rate limiting
+	4.	Observability (logs + metrics + tracing)
+	5.	Resilience (timeouts + retries + circuit breaker)
