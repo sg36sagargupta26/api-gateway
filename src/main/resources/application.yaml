@@ -12,3 +12,8 @@ spring:
     redis:
       host: localhost
       port: 6379
+gateway:
+  jwt:
+    secret: DBkINNirsspBKgWJvsI/mscufNFMEJvfRP2dfGwcIvs=
+  admin:
+    token: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnYXRld2F5Iiwic3ViIjoic2FnYXIiLCJleHAiOjE3NzUyNDQxNTcsImlhdCI6MTc3NTI0MDU1Nywic2NvcGUiOiJoZWxsbzpyZWFkIn0.sfx1r8wweBcRN_TaO05rSzZLQonx1CkW0G_9vXSkM7o

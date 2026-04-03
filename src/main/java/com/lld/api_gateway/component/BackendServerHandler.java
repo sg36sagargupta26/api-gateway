@@ -1,11 +1,14 @@
 package com.lld.api_gateway.component;
 
 import com.lld.api_gateway.service.BackendServerService;
+import com.lld.api_gateway.service.TokenService;
+import jakarta.servlet.ServletException;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.function.ServerResponse;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
@@ -14,9 +17,12 @@ import java.util.Map;
 public class BackendServerHandler {
 
     private final BackendServerService backendServerService;
+    private final TokenService tokenService;
 
-    public BackendServerHandler(final BackendServerService backendServerService) {
+    public BackendServerHandler(final BackendServerService backendServerService,
+                                final TokenService tokenService) {
         this.backendServerService = backendServerService;
+        this.tokenService = tokenService;
     }
 
 
@@ -63,4 +69,16 @@ public class BackendServerHandler {
         return ServerResponse.ok().body("Server removed");
     }
 
+    public ServerResponse issueToken(final ServerRequest request) throws ServletException, IOException {
+        Map<String, String> body = request.body(Map.class);
+        String userId = body.get("userId");
+
+        if (userId == null || userId.isBlank()) {
+            return ServerResponse.badRequest().body("Missing 'userId'");
+        }
+
+        // In production: validate credentials here before issuing
+        String token = tokenService.generateToken(userId);
+        return ServerResponse.ok().body(Map.of("token", token));
+    }
 }

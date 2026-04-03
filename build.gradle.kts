@@ -23,6 +23,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:4.0.4")
     implementation("org.postgresql:postgresql:42.7.9")
     implementation("org.springframework.boot:spring-boot-starter-data-redis:4.0.4")
+    implementation("org.springframework.boot:spring-boot-starter-security:4.0.4")
+    implementation("org.springframework.security:spring-security-oauth2-resource-server:7.0.4")
+    implementation("org.springframework.security:spring-security-oauth2-jose:7.0.4")
 }
 
 tasks.withType<Test> {
